@@ -1,3 +1,9 @@
+# * my_pizza v1 (https://github.com/aguascesar/2024-FSP_M3d14-EstrDatosFunc-DF-Estructuras2-byCesarAguas-v1)
+# * Copyright 2024 Cesar Aguas
+# * Licensed under AGPL3.0 (https://github.com/aguascesar/2024-FSP_M3d14-EstrDatosFunc-DF-Estructuras2-byCesarAguas-v1/LICENSE)
+#  
+#
+
 #Proyecto parcial, aun no esta terminado, necesito entender la parte de modularizacion.
 
 #Por favor se ruega tener paciencia, gracias.
