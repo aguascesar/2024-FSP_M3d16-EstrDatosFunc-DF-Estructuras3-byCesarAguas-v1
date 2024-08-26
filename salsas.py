@@ -6,9 +6,9 @@
 
 import os
 import sys
+from validador import validate
 
-
-
+op_sys = 'cls' if sys.platform == 'win32' else 'clear'
 
 s_tomate = 1250
 s_alfredo = 850
@@ -19,15 +19,18 @@ def salsa(t_m):
     total = t_m
     pedido = []
     while True:
-
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print("Tenemos las siguientes Salsas disponibles.")
+        print()
         print(f" 1 - Salsa de tomate - $ {s_tomate}")
         print(f" 2 - Salsa Alfredo - $ {s_alfredo}")
         print(f" 3 - Salsa Barbecue - $ {s_barbecue}")
         print(f" 4 - Salsa Pesto - $ {s_pesto}")
 
-        tipo = int(input("Si desea algun tipo de salsa por favor elija una alternativa [1/2/3/4]"))
-
-        match tipo:
+        tipo = int(input("\nSi desea algun tipo de salsa por favor elija una alternativa [1/2/3/4]"))
+        valido = validate([1, 2, 3, 4], tipo)
+        os.system(op_sys)
+        match valido:
             case 1:
                 print(f"Ha elegido salsa de tomate.\nExtra a pagar {s_tomate}")
                 total += s_tomate

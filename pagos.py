@@ -7,12 +7,28 @@
 #pip install tqdm
 from time import sleep
 from tqdm import tqdm
+import os
+import sys
+from validador import validate
+op_sys = 'cls' if sys.platform == 'win32' else 'clear'
 
-def pago(total, pedido):
+def pago(total, msas, ssas, ingr):
 
     while True:
-        pagar = input("Como desea cancelar su pizza [Efectivo/Debito/Credito/Otro]")
-        if pagar != "":
+
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print("Como desea cancelar su pizza?")
+        print()
+        print(f"1 - Efectivo ")
+        print(f"2 - Debito ")
+        print(f"3 - Credito ")
+        print(f"4 - Cheque ")
+
+        pagar = int(input("\nElija una de las opciones [1/2/3/4]"))
+        valido = validate([1, 2, 3, 4], pagar)
+        os.system(op_sys)
+
+        if valido != "":
             print("_____") 
             print(" \_&_/ Ticket de compra")
             print(" (n_n) No valido como boleta")
@@ -20,11 +36,16 @@ def pago(total, pedido):
             print(f" | |   Total Pedido: $ {total}")
             print(f" |_|_  \n")
 
-            print("Su pedido es: ")
-            for i in pedido:
-                print(f"{i}.")
+            print(f"Su pedido es: ")
+            print(f"{msas}")
+            print(f"{ssas}")
+            for i in ingr:
+                print(f"{i}\n")
+            print()
             for i in tqdm(range(10)):
                 sleep(3)
+
+            os.system(op_sys)
             print("\n ¡Provecho!")
             print()
             print("  \_(n_n)_/")      
